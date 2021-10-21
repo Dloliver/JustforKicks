@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<h1>Your Closet</h1>
+<ul>
+  <% for (let i = 0; i < kicks.length; i++){ %>
+<li>
+<a href="/kicks/<%=kicks[i].id; %>">
+  <%=kicks[i].name; %>
+</a>
+</li>
+
+  <%}%>
+</ul>
+
+<nav>
+  <a href="/kicks/new">Add New Kicks</a>
+</nav>
+  </body>
+</html>

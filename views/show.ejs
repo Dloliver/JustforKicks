@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Collection</h1>
+
+    <%=kicks.name; %>
+    Price = <%=kicks.price; %>
+
+    <img src="<%=kicks.image; %>" alt="Photo of your sneaks">
+    <% if(kicks).purchased === true){ %>
+                In your closet.
+            <% } else { %>
+                You still gotta find these.
+            <% } %>
+
+<nav>
+  <a href="/kicks">Back to Your Closet</a>
+</nav>
+  </body>
+</html>

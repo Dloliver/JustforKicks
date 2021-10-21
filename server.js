@@ -6,7 +6,8 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const app = express();
 const db = mongoose.connection;
-require('dotenv').config()
+require('dotenv').config();
+const Kicks = require('./models/kicks.js');
 //___________________
 //Port
 //___________________
@@ -22,11 +23,11 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false
-});
+mongoose.connect(MONGODB_URI) //, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   // useFindAndModify: false
+// });
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
@@ -60,16 +61,37 @@ app.get('/kicks/new', (req, res) => {
   res.render('new.ejs');
 });
 
-app.post('/kicks/', (req, res) => {
-  res.send('received');
-});
 
 //////////Create//////////
 app.post('/kicks/', (req, res) => {
-  res.send('received');
+  console.log(req.body);
+  if (req.body.purchased === 'on') {
+    req.body.purchased = true;
+  } else {
+    req.body.purchased = false;
+  }
+  Kicks.create(req.body, (error, createdKicks) => {
+    res.redirect('/kicks');
+  });
 });
 
+/////Index/////////
+app.get('/kicks', (req, res) => {
+  Kicks.find({}, (error, allKicks) => {
+    res.render('index.ejs', {
+      kicks: allKicks
+    });
+  });
+});
 
+//////Show////////
+app.get('/kicks/:id', (req, res) => {
+  Kicks.findById(req.params.id, (err, foundKicks) => {
+    res.render('show.ejs', {
+      kicks: foundKicks
+    });
+  });
+});
 
 
 
