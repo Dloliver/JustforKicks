@@ -64,12 +64,12 @@ app.get('/kicks/new', (req, res) => {
 
 //////////Create//////////
 app.post('/kicks/', (req, res) => {
-  console.log(req.body);
-  if (req.body.purchased === 'on') {
-    req.body.purchased = true;
+  if (req.body.purchase === 'on') {
+    req.body.purchase = true;
   } else {
-    req.body.purchased = false;
+    req.body.purchase = false;
   }
+  console.log(req.body);
   Kicks.create(req.body, (error, createdKicks) => {
     res.redirect('/kicks');
   });

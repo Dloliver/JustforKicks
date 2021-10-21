@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema
 
-const kicksSchema = new mongoose.Schema({
+const kicksSchema = Schema({
   name: {
     type: String,
     required: true
@@ -10,7 +11,7 @@ const kicksSchema = new mongoose.Schema({
     required: true
   },
   date: {
-    type: Date,
+    type: String,
     required: true
   },
   image: {
