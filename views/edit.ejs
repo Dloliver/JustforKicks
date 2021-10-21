@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Edit Your Kicks</h1>
+    <form action="/kicks/<%=kicks.id%>?_method=PUT" method="POST">
+      Name: <input type="text" name="name" value="<%=kicks.name%>" /><br/>
+      Brand: <input type="text" name="brand" value="<%=kicks.brand%>" /><br/>
+      Release Date: <input type="date" name="date"  value="<%=kicks.date%>"><br/>
+      Image: <input type="text" name="image" value="<%=kicks.image%>"><br/>
+      Price: <input type="number" name="price" value="<%=kicks.price%>"><br/>
+      Did you Cop?:
+      <input type="checkbox" name="purchased"
+      <% if (kicks.puchased === true){ %>
+      checked
+    <% } %>
+    />
+    <br/>
+    <input type="submit" value="Add to Closet"><br/>
+  </body>
+</html>

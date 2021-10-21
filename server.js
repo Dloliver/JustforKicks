@@ -64,10 +64,10 @@ app.get('/kicks/new', (req, res) => {
 
 //////////Create//////////
 app.post('/kicks/', (req, res) => {
-  if (req.body.purchase === 'on') {
-    req.body.purchase = true;
+  if (req.body.purchased === 'on') {
+    req.body.purchased = true;
   } else {
-    req.body.purchase = false;
+    req.body.purchased = false;
   }
   console.log(req.body);
   Kicks.create(req.body, (error, createdKicks) => {
@@ -92,6 +92,37 @@ app.get('/kicks/:id', (req, res) => {
     });
   });
 });
+
+///////Delete/////
+app.delete('/kicks/:id', (req, res) => {
+  Kicks.findByIdAndRemove(req.params.id, (err, data) => {
+    res.redirect('/kicks');
+  });
+});
+
+////////EDIT////////
+app.get('/kicks/:id/edit', (req, res) => {
+  Kicks.findById(req.params.id, (err, foundKicks) => {
+    res.render(
+      'edit.ejs', {
+        kicks: foundKicks
+      }
+    );
+  });
+});
+
+app.put('/kicks/:id', (req, res) => {
+  if (req.body.puchased === 'on') {
+    req.body.purchased = true;
+  } else {
+    req.body.purchased = false;
+  }
+  Kicks.findByIdAndUpdate(req.params.id, req.body, (err, updatedModel) => {
+    res.redirect('/kicks');
+  });
+});
+
+
 
 
 
