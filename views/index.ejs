@@ -3,26 +3,130 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style>
+
+.sneakers{
+  display: inline-block;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(88, 93, 99)
+}
+
+h2 {
+  font-size: 30px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 45px;
+  text-align: center;
+}
+
+.shoes {
+  height: 15em;
+  width: 15em;
+}
+
+.pic {
+  height: 15em;
+  width: 15em;
+  align-self: center;
+}
+
+.pic-ctn {
+  width: 200vw;
+  height: 200px;
+}
+
+@keyframes display {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+}
+
+.pic-ctn {
+
+  width: 150vw;
+  height: 200px;
+  margin-top: vh;
+}
+
+.pic-ctn > img {
+  left: calc(50% - 100px);
+  opacity: 0;
+  animation: display 25s infinite;
+}
+
+img:nth-child(2) {
+  animation-delay: 5s;
+}
+img:nth-child(3) {
+  animation-delay: 10s;
+}
+img:nth-child(4) {
+  animation-delay: 15s;
+}
+img:nth-child(5) {
+  animation-delay: 20s;
+}
+    </style>
   </head>
   <body>
-<h1>Your Closet</h1>
-<ul>
+
+    <h2>Upcoming Releases</h2><br/>
+
+    <div class="pic-ctn">
+      <img src="https://sneakernews.com/wp-content/uploads/2021/10/nike-sb-dunk-low-mummy-DM0774-111-release-date-5.jpg?w=1140" alt="" class="pic">
+    <img src="https://sneakernews.com/wp-content/uploads/2021/09/air-jordan-5-retro-dc7501-300.jpg?w=780" alt="" class="pic">
+    <img src="https://sneakernews.com/wp-content/uploads/2021/08/air-jordan-11-cool-grey-gs-378038-005-release-date-1.jpg?w=1140" alt="" class="pic">
+    <img src="https://sneakernews.com/wp-content/uploads/2021/10/adidas-yeezy-boost-350-v2-mx-oat-GW3773-official-images-1.jpg" alt="" class="pic">
+  </div> <br/>
+<br/>
+<br/>
+<br/>
+
+<br/><h1>Your Closet</h1>
+<div class="body">
+
   <% for (let i = 0; i < kicks.length; i++){ %>
-<li>
+<div class="sneakers">
+
 <a href="/kicks/<%=kicks[i].id; %>">
-  <%=kicks[i].name; %>
+  <%=kicks[i].name; %></br>
 </a>
+<img src="<%=kicks[i].image %>" alt="" class="shoes">
 <form class="" action="/kicks/<%=kicks[i].id; %>?_method=DELETE" method="POST">
   <input type="submit" value="DELETE">
 </form>
 <a href="/kicks/<%=kicks[i].id; %>/edit">Edit</a>
-</li>
 
+</div>
   <%}%>
-</ul>
 
+</div>
 <nav>
   <a href="/kicks/new">Add New Kicks</a>
 </nav>
+
   </body>
 </html>
