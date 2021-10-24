@@ -3,11 +3,54 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap" rel="stylesheet">
+
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(88, 93, 99);
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+
+  }
+
+  h1 {
+    font-size: 45px;
+  }
+
+  h3 {
+    font-size: 25px;
+  }
+
+  img {
+    height: 20em;
+    width: 35em;
+  }
+
+  a {
+    background-color: black;
+    text-transform: uppercase;
+    color: white;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+</style>
+
+
+
+
   </head>
   <body>
     <h1>Collection</h1>
 
-  <h3>  <%=kicks.name; %> </h3>
+  <h3 class="name">  <%=kicks.name; %> </h3>
 <h3><%=kicks.brand; %></h3>
   <h3>Price = <%=kicks.price; %> </h3>
 
@@ -19,7 +62,7 @@
             <% } %>
 
 <nav>
-  <a href="/kicks">Back to Your Closet</a>
+  <a href="/kicks">Back to Your Closet</a><br/>
 </nav>
   </body>
 </html>

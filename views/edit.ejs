@@ -3,15 +3,91 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap" rel="stylesheet">
+
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: rgb(88, 93, 99);
+        text-align: center;
+        font-family: 'Titillium Web', sans-serif;
+
+      }
+
+      h1 {
+        font-size: 45px;
+      }
+
+      h3 {
+        font-size: 25px;
+      }
+
+      img {
+        height: 20em;
+        width: 20em;
+      }
+
+      a {
+        background-color: black;
+        text-transform: uppercase;
+        color: white;
+        margin: 5px;
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+      form {
+        font-size: 20px;
+      }
+
+      .name {
+        margin: 10px;
+        font-size: 20px;
+      }
+
+      .brand {
+        margin: 10px;
+        font-size: 20px;
+      }
+
+      .date {
+        margin: 10px;
+        font-size: 20px;
+      }
+
+      .image {
+        margin: 10px;
+        font-size: 20px;
+      }
+
+      .price {
+        margin: 10px;
+        font-size: 20px;
+      }
+
+      .purchase {
+        margin: 10px;
+        font-size: 20px;
+      }
+
+    </style>
+
+
+
   </head>
   <body>
     <h1>Edit Your Kicks</h1>
     <form action="/kicks/<%=kicks.id%>?_method=PUT" method="POST">
-      Name: <input type="text" name="name" value="<%=kicks.name%>" /><br/>
-      Brand: <input type="text" name="brand" value="<%=kicks.brand%>" /><br/>
-      Release Date: <input type="date" name="date"  value="<%=kicks.date%>"><br/>
-      Image: <input type="text" name="image" value="<%=kicks.image%>"><br/>
-      Price: <input type="number" name="price" value="<%=kicks.price%>"><br/>
+      Name: <input type="text" name="name" value="<%=kicks.name%>" class="name" /><br/>
+      Brand: <input type="text" name="brand" value="<%=kicks.brand%>" class="brand" /><br/>
+      Release Date: <input type="date" name="date"  value="<%=kicks.date%>" class="date" /><br/>
+      Image: <input type="text" name="image" value="<%=kicks.image%>" class="image" /><br/>
+      Price: <input type="number" name="price" value="<%=kicks.price%>"  class="price" ><br/>
       Did you Cop?:
       <input type="checkbox" name="purchased"
       <% if (kicks.puchased === true){ %>
@@ -20,5 +96,10 @@
     />
     <br/>
     <input type="submit" value="Add to Closet"><br/>
+
+    <nav>
+      <a href="/kicks">Back to Your Closet</a><br/>
+    </nav>
+
   </body>
 </html>

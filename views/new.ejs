@@ -3,18 +3,78 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap" rel="stylesheet">
+
+<style media="screen">
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(88, 93, 99);
+    text-align: center;
+    padding: 15px;
+    font-family: 'Titillium Web', sans-serif;
+  }
+
+  form {
+    padding: 15px;
+    margin: 10px;
+    font-size: 20px;
+  }
+
+a{
+  background-color: black;
+  color: white;
+  padding: 5px;
+border-radius: 15px;
+}
+
+.name{
+  margin: 10px;
+}
+
+.brand{
+  margin: 10px;
+}
+
+.date{
+  margin: 10px;
+}
+
+.image{
+  margin: 10px;
+}
+
+.price{
+  margin: 10px;
+}
+
+.purchase{
+  margin: 10px;
+}
+
+
+
+</style>
+
   </head>
   <body>
 <h1>What are we Copping Today?</h1>
-<form action="/kicks" method="POST">
-  Name: <input type="text" name="name" placeholder="Sneaker Name" /><br/>
-  Brand: <input type="text" name="brand" placeholder="Brand Name" /><br/>
-  Release Date: <input type="date" name="date"><br/>
-  Image: <input type="text" name="image" placeholder="Photo Address"><br/>
-  Price: <input type="number" name="price" placeholder="Price"><br/>
-  Did you Cop?: <input type="checkbox" name="purchased"><br/>
+<form action="/kicks" method="POST" class="form" >
+  Name: <input type="text" name="name" placeholder="Sneaker Name" class="name" /><br/>
+  Brand: <input type="text" name="brand" placeholder="Brand Name" class="brand" /><br/>
+  Release Date: <input type="date" name="date" class="date" /><br/>
+  Image: <input type="text" name="image" placeholder="Photo Address" class="image" /><br/>
+  Price: <input type="number" name="price" placeholder="Price" class="price" ><br/>
+  Did you Cop?: <input type="checkbox" name="purchased" class=" check" ><br/>
 <input type="submit" value="Add to Closet"><br/>
 </form>
+
+<nav>
+  <a href="/kicks">Back to Your Closet</a>
+</nav>
 
   </body>
 </html>
