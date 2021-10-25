@@ -22,7 +22,10 @@ const kicksSchema = Schema({
     type: String,
     required: true
   },
-  purchase: Boolean
+  purchase: {
+    type: Boolean
+  },
+  public: Boolean
 });
 
 const Kicks = mongoose.model('Kicks', kicksSchema);

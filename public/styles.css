@@ -6,12 +6,13 @@
 .body {
   align-content: center;
   text-align: center;
+  font-family: "Titillium Web", sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(88, 93, 99);
+  background: linear-gradient(-70deg, #fa7c30 30%, rgb(49, 49, 49) 30%);
 }
 
 nav {
@@ -27,7 +28,7 @@ nav {
 a {
   background-color: black;
   text-transform: uppercase;
-  color: white;
+  color: rgb(250, 124, 49);
   margin: 5px;
   padding: 5px;
   border-radius: 5px;
@@ -42,11 +43,17 @@ a {
 h2 {
   font-size: 35px;
   text-align: center;
+  background-color: white;
+  border-radius: 15px;
 }
 
 h1 {
   font-size: 45px;
   text-align: center;
+  background-color: white;
+  border-left: 25%;
+  border-right: 25%;
+  border-radius: 15px;
 }
 
 .shoes {

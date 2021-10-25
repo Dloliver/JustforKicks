@@ -93,6 +93,17 @@ app.get('/kicks/:id', (req, res) => {
   });
 });
 
+
+///////ShowTimeline/////////
+app.get('/kicks/timeline', (req, res) => {
+  Kicks.find({}, (err, publicKicks) => {
+    res.render('public.ejs', {
+      kicks: publicKicks
+    });
+  });
+});
+
+
 ///////Delete/////
 app.delete('/kicks/:id', (req, res) => {
   Kicks.findByIdAndRemove(req.params.id, (err, data) => {

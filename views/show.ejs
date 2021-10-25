@@ -25,6 +25,10 @@
 
   h3 {
     font-size: 25px;
+    color: white;
+    /* background: black; */
+    /* border-radius: 5px; */
+    /* width:  */
   }
 
   img {
@@ -43,6 +47,7 @@
 
 </style>
 
+<link rel="stylesheet" href="/styles.css">
 
 
 
@@ -60,6 +65,11 @@
             <% } else { %>
               <h3>  You still gotta find these. </h3>
             <% } %>
+    <% if(kicks.public === true){ %>
+              <h3> Public Timeline </h3>
+            <% } else { %>
+              <h3> Only in your closet </h3>
+                    <% } %>
 
 <nav>
   <a href="/kicks">Back to Your Closet</a><br/>

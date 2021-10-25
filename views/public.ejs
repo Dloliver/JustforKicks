@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="stylesheet" href="/styles.css">
+
+  </head>
+  <body>
+
+<h1>Live Feed</h1>
+
+    <% for (let i = 0; i < kicks.length; i++){ %>
+      <% if(kicks.public === true){ %>
+        <h3 class="name">  <%=kicks.name; %> </h3>
+      <h3><%=kicks.brand; %></h3>
+        <h3>Price = <%=kicks.price; %> </h3>
+        <img src="<%=kicks.image; %>" alt="Photo of your sneaks">
+
+  </body>
+</html>
