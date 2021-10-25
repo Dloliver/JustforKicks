@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  padding: 15px;
+  font-family: "Titillium Web", sans-serif;
+}
+
+form {
+  padding: 15px;
+  margin: 10px;
+  font-size: 20px;
+  color: rgb(250, 124, 49);
+}
+
+a {
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.name {
+  margin: 10px;
+}
+
+.brand {
+  margin: 10px;
+}
+
+.date {
+  margin: 10px;
+}
+
+.image {
+  margin: 10px;
+}
+
+.price {
+  margin: 10px;
+}
+
+.purchase {
+  margin: 10px;
+}
