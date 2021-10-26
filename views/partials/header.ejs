@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<header>
-  <div class="header">
-    <a href="#default" class="logo">JUST FOR KICKS</a>
-    <div class="header-right">
-      <a class="active" href="#home">Home</a>
-      <a href="#contact"></a>
-      <a href="#about">Login</a>
-    </div>
+<div class="header">
+  <a href="/kicks/timeline" class="logo">Just For Kicks</a>
+  <div class="header-right">
+    <% if (currentUser) { %>
+    <h3>Welcome <%= currentUser.username %><h3>
+    <form action="/sessions?_method=DELETE" method="POST">
+      <input type="submit" value="Log Out" class="btn-small red" />
+    </form>
+    <% } else { %>
+    <a href="/users/new">Sign Up</a>
+    <a href="/sessions/new">Log In</a>
+    <% } %>
   </div>
-</header>
+</div>

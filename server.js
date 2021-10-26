@@ -8,6 +8,9 @@ const app = express();
 const db = mongoose.connection;
 require('dotenv').config();
 const Kicks = require('./models/kicks.js');
+const userController = require('./controllers/user_controller.js')
+const session = require('express-session')
+const sessionsController = require('./controllers/sessions_controller.js')
 //___________________
 //Port
 //___________________
@@ -37,6 +40,13 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 //___________________
 //Middleware
 //___________________
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+  })
+)
 
 //use public folder for static assets
 app.use(express.static('public'));
@@ -50,6 +60,10 @@ app.use(express.json()); // returns middleware that only parses JSON - may or ma
 //use method override
 app.use(methodOverride('_method')); // allow POST, PUT and DELETE from a form
 
+app.use('/users', userController)
+
+app.use('/sessions', sessionsController)
+
 
 //___________________
 // Routes
@@ -57,8 +71,15 @@ app.use(methodOverride('_method')); // allow POST, PUT and DELETE from a form
 //localhost:3000
 
 //////NEW/////////
+
+app.get('/', (req, res) => {
+  res.redirect('/kicks')
+})
+
 app.get('/kicks/new', (req, res) => {
-  res.render('new.ejs');
+  res.render('new.ejs', {
+    currentUser: req.session.currentUser
+  });
 });
 
 
@@ -79,30 +100,39 @@ app.post('/kicks/', (req, res) => {
 app.get('/kicks', (req, res) => {
   Kicks.find({}, (error, allKicks) => {
     res.render('index.ejs', {
-      kicks: allKicks
+      kicks: allKicks,
+      currentUser: req.session.currentUser
     });
   });
 });
-
-//////Show////////
-app.get('/kicks/:id', (req, res) => {
-  Kicks.findById(req.params.id, (err, foundKicks) => {
-    res.render('show.ejs', {
-      kicks: foundKicks
-    });
-  });
-});
-
 
 ///////ShowTimeline/////////
 app.get('/kicks/timeline', (req, res) => {
-  Kicks.find({}, (err, publicKicks) => {
+  Kicks.find({
+    public: true
+  }, (err, publicKicks) => {
+
+    console.log('I love shoes', publicKicks);
     res.render('public.ejs', {
       kicks: publicKicks
     });
   });
 });
 
+
+//////Show////////
+app.get('/kicks/:id', (req, res) => {
+  if (req.session.currentUser) {
+    Kicks.findById(req.params.id, (err, foundKicks) => {
+      res.render('show.ejs', {
+        kicks: foundKicks,
+        currentUser: req.session.currentUser
+      })
+    })
+  } else {
+    res.redirect('/sessions/new')
+  }
+});
 
 ///////Delete/////
 app.delete('/kicks/:id', (req, res) => {
@@ -116,7 +146,8 @@ app.get('/kicks/:id/edit', (req, res) => {
   Kicks.findById(req.params.id, (err, foundKicks) => {
     res.render(
       'edit.ejs', {
-        kicks: foundKicks
+        kicks: foundKicks,
+        currentUser: req.session.currentUser
       }
     );
   });

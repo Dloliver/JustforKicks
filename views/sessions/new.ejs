@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="/styles.css">
+    <style media="screen">
+      body {
+        text-align: center;
+      }
+      form {
+        color: rgb(250, 124, 49)
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+    </nav>
+    <div class="container">
+      <h1>Log In</h1> <br/> <br/>
+      <form action="/sessions" method="POST">
+        <label for="name">User Name:</label> <br/>
+        <input type="text" name="username" required/> <br/> <br/>
+        <label for="color">Password:</label> <br/>
+        <input type="password" name="password" /> <br/>
+        <br>
+        <input type="submit" value="Submit">
+      <form>
+    </div>
+  </body>
+</html>

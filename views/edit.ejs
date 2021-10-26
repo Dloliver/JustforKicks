@@ -8,67 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@700&display=swap" rel="stylesheet">
 
-
-    <style>
-      h1 {
-        font-size: 45px;
-      }
-
-      h3 {
-        font-size: 25px;
-      }
-
-      img {
-        height: 20em;
-        width: 20em;
-      }
-
-      a {
-        background-color: black;
-        text-transform: uppercase;
-        margin: 5px;
-        padding: 5px;
-        border-radius: 5px;
-      }
-
-      form {
-        font-size: 20px;
-      }
-
-      .name {
-        margin: 10px;
-        font-size: 20px;
-      }
-
-      .brand {
-        margin: 10px;
-        font-size: 20px;
-      }
-
-      .date {
-        margin: 10px;
-        font-size: 20px;
-      }
-
-      .image {
-        margin: 10px;
-        font-size: 20px;
-      }
-
-      .price {
-        margin: 10px;
-        font-size: 20px;
-      }
-
-      .purchase {
-        margin: 10px;
-        font-size: 20px;
-      }
-
-    </style>
-
     <link rel="stylesheet" href="/styles.css">
-
+    <link rel="stylesheet" href="/edit.css">
 
   </head>
   <body>
@@ -84,7 +25,14 @@
       <% if (kicks.puchased === true){ %>
       checked
     <% } %>
-    />
+    /><br/>
+    Make Public?:
+    <input type="checkbox" name="public"
+    <% if (kicks.public === true){ %>
+      checked
+    <% } %>
+    /><br/>
+
     <br/>
     <input type="submit" value="Add to Closet"><br/>
 

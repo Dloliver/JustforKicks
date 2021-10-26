@@ -1,0 +1,56 @@
+h1 {
+  font-size: 45px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+img {
+  height: 20em;
+  width: 20em;
+}
+
+a {
+  background-color: black;
+  text-transform: uppercase;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+form {
+  font-size: 20px;
+  text-align: center;
+  color: rgb(250, 124, 49);
+}
+
+.name {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.brand {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.date {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.image {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.price {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.purchase {
+  margin: 10px;
+  font-size: 20px;
+}
