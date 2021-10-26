@@ -90,6 +90,11 @@ app.post('/kicks/', (req, res) => {
   } else {
     req.body.purchased = false;
   }
+  if (req.body.public === 'on') {
+    req.body.public = true;
+  } else {
+    req.body.public = false;
+  }
   console.log(req.body);
   Kicks.create(req.body, (error, createdKicks) => {
     res.redirect('/kicks');
@@ -108,6 +113,11 @@ app.get('/kicks', (req, res) => {
 
 ///////ShowTimeline/////////
 app.get('/kicks/timeline', (req, res) => {
+  if (req.body.public === 'on') {
+    req.body.public = true;
+  } else {
+    req.body.public = false;
+  }
   Kicks.find({
     public: true
   }, (err, publicKicks) => {
@@ -154,12 +164,19 @@ app.get('/kicks/:id/edit', (req, res) => {
 });
 
 app.put('/kicks/:id', (req, res) => {
-  if (req.body.puchased === 'on') {
+  if (req.body.purchased === 'on') {
     req.body.purchased = true;
   } else {
     req.body.purchased = false;
   }
-  Kicks.findByIdAndUpdate(req.params.id, req.body, (err, updatedModel) => {
+  if (req.body.public === 'on') {
+    req.body.public = true;
+  } else {
+    req.body.public = false;
+  }
+  Kicks.findByIdAndUpdate(req.params.id, req.body, {
+    new: true
+  }, (err, updatedModel) => {
     res.redirect('/kicks');
   });
 });

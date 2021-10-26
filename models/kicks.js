@@ -22,9 +22,8 @@ const kicksSchema = Schema({
     type: String,
     required: true
   },
-  purchase: {
-    type: Boolean
-  },
+  purchased: Boolean,
+
   public: Boolean
 });
 

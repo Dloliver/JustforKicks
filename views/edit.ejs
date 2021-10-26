@@ -21,8 +21,10 @@
       Image: <input type="text" name="image" value="<%=kicks.image%>" class="image" /><br/>
       Price: <input type="number" name="price" value="<%=kicks.price%>"  class="price" ><br/>
       Did you Cop?:
-      <input type="checkbox" name="purchased"
-      <% if (kicks.puchased === true){ %>
+      <input
+      type="checkbox"
+      name="purchased"
+      <% if (kicks.purchased === true){ %>
       checked
     <% } %>
     /><br/>

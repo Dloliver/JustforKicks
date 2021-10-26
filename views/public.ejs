@@ -11,12 +11,14 @@
 
 <h1>Live Feed</h1>
 
-    <% for (let i = 0; i < kicks.length; i++){ %>
-      <% if(kicks.public === true){ %>
-        <h3 class="name">  <%=kicks.name; %> </h3>
-      <h3><%=kicks.brand; %></h3>
-        <h3>Price = <%=kicks.price; %> </h3>
-        <img src="<%=kicks.image; %>" alt="Photo of your sneaks">
+<% if(kicks.public === true ){ %>
+<% for (let i = 0; i < kicks.length; i++){ %>   
+    <h3 class="name">  <%=kicks.name; %> </h3>
+  <h3><%=kicks.brand; %></h3>
+    <h3>Price = <%=kicks.price; %> </h3>
+    <img src="<%=kicks.image; %>" alt="Photo of your sneaks">
+  <% } %>
+  <% } %>
 
   </body>
 </html>
