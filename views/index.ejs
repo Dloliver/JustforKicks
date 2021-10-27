@@ -30,11 +30,20 @@
 
 <br/><h1>Your Closet</h1>
 
-<a href="/kicks/timeline">Timeline</a>
+<form class="timeline" action="/kicks/timeline" method="POST">
+<input type="hidden" name="timeline" value="<%=kicks.public %>">
+<input type="submit" value="timeline">
+</form>
+
+<!-- <a href="/kicks/timeline">Timeline</a> -->
 <div class="body">
 
 
   <% for (let i = 0; i < kicks.length; i++){ %>
+    <% if(kicks[i].user === currentUser.username){ %>
+      <% console.log(currentUser.username) %>
+      <% console.log(kicks[i].user) %>
+
 <div class="sneakers">
 
 <a href="/kicks/<%=kicks[i].id; %>" class="name">
@@ -48,7 +57,7 @@
 
 </div>
   <%}%>
-
+  <%}%>
 </div>
 <nav>
   <a href="/kicks/new">Add New Kicks</a>

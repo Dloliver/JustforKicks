@@ -1,32 +1,36 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const kicksSchema = Schema({
+  user: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
-    required: true
+    required: true,
   },
   brand: {
     type: String,
-    required: true
+    required: true,
   },
   date: {
     type: String,
-    required: true
+    required: true,
   },
   image: {
     type: String,
-    required: true
+    required: true,
   },
   price: {
     type: String,
-    required: true
+    required: true,
   },
   purchased: Boolean,
 
-  public: Boolean
+  public: Boolean,
 });
 
-const Kicks = mongoose.model('Kicks', kicksSchema);
+const Kicks = mongoose.model("Kicks", kicksSchema);
 
 module.exports = Kicks;

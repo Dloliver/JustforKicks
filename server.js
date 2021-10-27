@@ -64,7 +64,13 @@ app.use('/users', userController)
 
 app.use('/sessions', sessionsController)
 
-
+const isAuthenticated = (req, res, next) => {
+  if (req.session.currentUser) {
+    return next()
+  } else {
+    res.redirect('/sessions/new')
+  }
+}
 //___________________
 // Routes
 //___________________
@@ -103,14 +109,18 @@ app.post('/kicks/', (req, res) => {
 
 /////Index/////////
 app.get('/kicks', (req, res) => {
-  Kicks.find({}, (error, allKicks) => {
-    res.render('index.ejs', {
-      kicks: allKicks,
-      currentUser: req.session.currentUser
+  if (req.session.currentUser) {
+    Kicks.find({}, (error, allKicks) => {
+      console.log('I have Kicks', allKicks);
+      res.render('index.ejs', {
+        kicks: allKicks,
+        currentUser: req.session.currentUser
+      });
     });
-  });
-});
-
+  } else {
+    res.redirect('/kicks/timeline')
+  }
+})
 ///////ShowTimeline/////////
 app.get('/kicks/timeline', (req, res) => {
   if (req.body.public === 'on') {
@@ -124,11 +134,28 @@ app.get('/kicks/timeline', (req, res) => {
 
     console.log('I love shoes', publicKicks);
     res.render('public.ejs', {
-      kicks: publicKicks
+      kicks: publicKicks,
+      currentUser: req.session.currentUser
     });
   });
 });
 
+app.post('/kicks/timeline', (req, res) => {
+  if (req.body.purchased === 'on') {
+    req.body.purchased = true;
+  } else {
+    req.body.purchased = false;
+  }
+  if (req.body.public === 'on') {
+    req.body.public = true;
+  } else {
+    req.body.public = false;
+  }
+  console.log(req.body);
+  Kicks.create(req.body, (error, createdKicks) => {
+    res.redirect('/kicks/timeline');
+  });
+});
 
 //////Show////////
 app.get('/kicks/:id', (req, res) => {
