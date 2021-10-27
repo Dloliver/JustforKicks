@@ -25,6 +25,12 @@ nav {
   padding: 10px;
 }
 
+.timeline {
+  text-align: center;
+  height: 20px;
+  width: 30px;
+}
+
 a {
   background-color: black;
   text-transform: uppercase;

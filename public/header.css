@@ -5,6 +5,10 @@ h3 {
   margin-top: 5px;
 }
 
+.special {
+  color: rgb(250, 124, 49);
+}
+
 /* Style the header with a grey background and some padding */
 .header {
   overflow: hidden;

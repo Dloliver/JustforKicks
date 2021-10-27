@@ -2,7 +2,7 @@
   <a href="/kicks/timeline" class="logo">Just For Kicks</a>
   <div class="header-right">
     <% if (currentUser) { %>
-    <h3>Welcome <%= currentUser.username %><h3>
+    <h3 class="special">Welcome <%= currentUser.username %><h3>
     <form action="/sessions?_method=DELETE" method="POST">
       <input type="submit" value="Log Out" class="btn-small red" />
     </form>
