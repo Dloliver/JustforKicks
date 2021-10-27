@@ -15,7 +15,7 @@ const sessionsController = require('./controllers/sessions_controller.js')
 //Port
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3003;
 
 //___________________
 //Database
@@ -26,10 +26,10 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODB_URI) //, {
-//   useNewUrlParser: true,
+// mongoose.connect(MONGODB_URI) //, {
+// useNewUrlParser: true,
 //   useUnifiedTopology: true,
-//   // useFindAndModify: false
+//   useFindAndModify: false,
 // });
 
 // Error / success
