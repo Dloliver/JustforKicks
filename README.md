@@ -21,10 +21,14 @@ Applied CSS to style the page.
 
 Applied Mongoose Atlas to be able to deploy the site to Heroku so that the site is available from anywhere.
 
-CRUD
+### `CRUD`
 
+<img src="https://i.imgur.com/0uGUHrL.png"
+ 
+<a href="https://imgur.com/0uGUHrL"><img src="https://i.imgur.com/0uGUHrL.png" title="source: imgur.com" /></a>
+  
+### `7 Restful Routes`
 ### `Create`
-<img 
 
 ## 4 
 - To create the app I began by using the 7 restful routes to set up my create, read, update and delete routes (CRUD). Once getting the crud working i began to work on CSS for each route. Just to make sure everything looked the way I wanted it to. After completing the CSS i wanted to create users so that each individual could have their own closet for their shoes. After setting up the shoes i had to set rules using scriptlets so that the shoes would not show for every user.
