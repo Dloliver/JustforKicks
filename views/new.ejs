@@ -15,6 +15,10 @@
   <body>
 <h1>Add to your Closet</h1>
 <form action="/kicks" method="POST" class="form" >
+
+  // this must match the schema form in order for these files to interact with the back end check kicks.js
+
+
   <input type="hidden" name="user" value="<%=currentUser.username%>"> <!-- learned this from Kaylee -->
   Name: <input type="text" name="name" placeholder="Sneaker Name" class="name" /><br/>
   Brand: <input type="text" name="brand" placeholder="Brand Name" class="brand" /><br/>

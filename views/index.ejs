@@ -38,6 +38,7 @@
 <!-- <a href="/kicks/timeline">Timeline</a> -->
 <div class="body">
 
+//This allows users to see the kicks that are tied to their individual closet.
 
   <% for (let i = 0; i < kicks.length; i++){ %>
     <% if(kicks[i].user === currentUser.username){ %>
@@ -49,6 +50,9 @@
 <a href="/kicks/<%=kicks[i].id; %>" class="name">
   <%=kicks[i].name; %></br>
 </a>
+
+//This allows users to delete their kicks swapping over the submit button to have a Delete method instead of a post.
+
 <img src="<%=kicks[i].image %>" alt="" class="shoes">
 <form class="delete" action="/kicks/<%=kicks[i].id; %>?_method=DELETE" method="POST">
   <input type="submit" value="DELETE">

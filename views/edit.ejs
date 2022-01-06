@@ -14,6 +14,9 @@
   </head>
   <body>
     <h1>Edit Your Kicks</h1>
+
+    // this must match the schema form in order for these files to interact with the back end check kicks.js
+
     <form action="/kicks/<%=kicks.id%>?_method=PUT" method="POST">
       <input type="hidden" name="user" value="<%=currentUser.username%>">
       Name: <input type="text" name="name" value="<%=kicks.name%>" class="name" /><br/>
@@ -21,6 +24,9 @@
       Release Date: <input type="date" name="date"  value="<%=kicks.date%>" class="date" /><br/>
       Image: <input type="text" name="image" value="<%=kicks.image%>" class="image" /><br/>
       Price: <input type="number" name="price" value="<%=kicks.price%>"  class="price" ><br/>
+      
+      // In order to utilize the purchased feature I had to use a hack to make checkbox match the status of checked if check box status matched the state that I was looking for. Utilized this on both levels of checkbox.
+
       Did you Cop?:
       <input
       type="checkbox"
